@@ -1,0 +1,38 @@
+<div class="header-bottom"><!--header-bottom-->
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-9">
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+						</div>
+						<div class="mainmenu pull-left">
+							<ul class="nav navbar-nav collapse navbar-collapse">
+								<?php
+								$query1 = mysqli_query($connect,"SELECT `City_Name` FROM `city`");
+									while($row = mysqli_fetch_assoc($query1)){
+										$city = $row['City_Name'];
+											echo "<li class=\"dropdown\"><a href=\"#\"> $city <i class=\"fa fa-angle-down\"></i></a>";
+											echo "<ul role=\"menu\" class=\"sub-menu\">";
+											$query2 = mysqli_query($connect,"SELECT `Mall_Name` FROM `malls` WHERE `City_id` = (SELECT `City_id` FROM `city` WHERE `City_Name` = '$city' )");
+											
+												while($row2 = mysqli_fetch_assoc($query2)){
+												$malls = $row2['Mall_Name'];
+												echo "<li><a href=\"#\">$malls</a></li>";
+												}
+
+											echo "</ul>";
+											echo "</li>";
+										
+									}
+								?>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!--/header-bottom-->

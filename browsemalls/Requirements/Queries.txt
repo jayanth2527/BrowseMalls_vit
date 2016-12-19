@@ -1,0 +1,9 @@
+1 select a shop to show shop details, list of products, list of offers and related shops
+2 show all brands
+3 select a brand to show the malls at locations
+4 create a manager accounts (Manage Malls)
+5 create shop owner accounts (Manage their own shop)
+6 select Location to show malls
+7 select mall to show offers
+8 create category details table
+9 
